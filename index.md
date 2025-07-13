@@ -73,20 +73,21 @@
     }
 
     function updateLineLink() {
-      const lines = ['📦 鮮到味 訂單'];
-      for (const [item, qty] of Object.entries(cart)) {
-        if (qty > 0) {
-          lines.push(`🐾 ${item} x${qty}`);
+      let msg = '📦 鮮到味 訂單\\n';
+      for (const item in cart) {
+        if (cart[item] > 0) {
+          msg += `🐾 ${item} x${cart[item]}\\n`;
         }
       }
-
-      let final = lines.join('\\n'); // 建立換行訊息
-      const encoded = encodeURIComponent(final); // 完整轉碼
-      const url = 'https://line.me/R/oaMessage/@567ncwhd/?text=' + encoded;
-      document.getElementById('lineBtn').href = url;
+      if (msg === '📦 鮮到味 訂單\\n') {
+        msg = '您尚未選擇任何品項喔～';
+      }
+      const encodedMsg = encodeURIComponent(msg);
+      const lineUrl = `https://line.me/R/oaMessage/@567ncwhd/?text=${encodedMsg}`;
+      document.getElementById('lineBtn').href = lineUrl;
     }
 
-    updateLineLink(); // 初始化時執行
+    updateLineLink();
   </script>
 </body>
 </html>
