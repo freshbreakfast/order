@@ -1,13 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
+  <meta charset="UTF-8" />
   <title>鮮到味 點餐頁</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; max-width: 500px; margin: auto; }
-    .item { margin-bottom: 16px; padding: 10px; border: 1px solid #ccc; border-radius: 8px; }
-    .name { font-weight: bold; margin-bottom: 8px; }
-    button { padding: 4px 10px; margin: 0 6px; }
-    .qty { display: inline-block; width: 20px; text-align: center; }
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    .item {
+      margin-bottom: 16px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .name {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    button {
+      padding: 4px 10px;
+      margin: 0 6px;
+    }
+    .qty {
+      display: inline-block;
+      width: 20px;
+      text-align: center;
+    }
     #lineBtn {
       display: inline-block;
       margin-top: 20px;
@@ -40,7 +61,10 @@
   <a id="lineBtn" target="_blank">✅ 送出點餐</a>
 
   <script>
-    const cart = { '原肉豬排': 0, '非基改豆漿': 0 };
+    const cart = {
+      '原肉豬排': 0,
+      '非基改豆漿': 0
+    };
 
     function changeQty(name, delta) {
       cart[name] = Math.max(0, cart[name] + delta);
@@ -56,11 +80,11 @@
         }
       }
       const encoded = encodeURIComponent(msg);
-      const url = 'https://line.me/R/oaMessage/@567ncwhd/?' + encoded;
+      const url = 'https://line.me/R/oaMessage/@567ncwhd/?text=' + encoded;
       document.getElementById('lineBtn').href = url;
     }
 
-    updateLineLink(); // 初始化
+    updateLineLink(); // 頁面初始化時更新
   </script>
 </body>
 </html>
