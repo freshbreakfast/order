@@ -47,14 +47,14 @@
   <h2>鮮到味 點餐頁</h2>
 
   <div class="item">
-    <div class="name">🐷 原肉豬排 – $255</div>
+    <div class="name">🐷 原肉豬排 </div>
     <button onclick="changeQty('原肉豬排', -1)">－</button>
     <span id="qty-原肉豬排" class="qty">0</span>
     <button onclick="changeQty('原肉豬排', 1)">＋</button>
   </div>
 
   <div class="item">
-    <div class="name">🧋 非基改豆漿 – $69</div>
+    <div class="name">🧋 非基改豆漿 </div>
     <button onclick="changeQty('非基改豆漿', -1)">－</button>
     <span id="qty-非基改豆漿" class="qty">0</span>
     <button onclick="changeQty('非基改豆漿', 1)">＋</button>
