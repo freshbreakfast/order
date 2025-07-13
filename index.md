@@ -73,10 +73,10 @@
     }
 
     function updateLineLink() {
-      let msg = '📦 鮮到味 訂單\n';
+      let msg = '📦 鮮到味 訂單\\n';
       for (const [item, qty] of Object.entries(cart)) {
         if (qty > 0) {
-          msg += `🐾 ${item} x${qty}\n`;
+          msg += `🐾 ${item} x${qty}\\n`;
         }
       }
       const encoded = encodeURIComponent(msg);
