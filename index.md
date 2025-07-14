@@ -74,14 +74,16 @@
 
     function updateLineLink() {
       let msg = '📦 鮮到味 訂單\\n';
-      for (const item in cart) {
-        if (cart[item] > 0) {
-          msg += `🐾 ${item} x${cart[item]}\\n`;
+      for (const [item, qty] of Object.entries(cart)) {
+        if (qty > 0) {
+          msg += `🐾 ${item} x${qty}\\n`;
         }
       }
       if (msg === '📦 鮮到味 訂單\\n') {
         msg = '您尚未選擇任何品項喔～';
       }
+
+      msg = msg.replace(/\\\\n/g, '\\n').replace(/\\n/g, '\\n').replace(/\\n/g, '\n');
       const encodedMsg = encodeURIComponent(msg);
       const lineUrl = `https://line.me/R/oaMessage/@567ncwhd/?text=${encodedMsg}`;
       document.getElementById('lineBtn').href = lineUrl;
