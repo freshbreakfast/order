@@ -57,7 +57,7 @@
   <!-- 商品清單 -->
   <div class="item">
     <div class="name">鮮到味漢堡肉20粒</div>
-    <img src="https://drive.google.com/uc?export=view&id=1vo2WVLHm1wv4pUuqu2FabZ2HUiZvX_Qz" />
+    <img src="https://i.postimg.cc/Kzdtxd97/image.jpg" />
     <div class="price">💰 團購價：$155</div>
     <button onclick="changeQty('鮮到味漢堡肉20粒', -1)">－</button>
     <span class="qty" id="qty-鮮到味漢堡肉20粒">0</span>
@@ -66,7 +66,7 @@
 
 <div class="item">
     <div class="name">正點牛肉堡10片</div>
-    <img src="https://drive.google.com/file/d/1xvT4WZvi9szVVOBHZIM_tlGk1ZTo7CKr" />
+    <img src="https://i.postimg.cc/s2sh6jth/image.jpg" />
     <div class="price">💰 團購價：$205</div>
     <button onclick="changeQty('正點牛肉堡10片', -1)">－</button>
     <span class="qty" id="qty-正點牛肉堡10片">0</span>
