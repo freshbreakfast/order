@@ -64,7 +64,7 @@
     <button onclick="changeQty('鮮到味漢堡肉20粒', 1)">＋</button>
   </div>
 
-<div class="item">
+  <div class="item">
     <div class="name">正點牛肉堡10片</div>
     <img src="https://i.postimg.cc/s2sh6jth/image.jpg" />
     <div class="price">💰 團購價：$205</div>
@@ -72,7 +72,7 @@
     <span class="qty" id="qty-正點牛肉堡10片">0</span>
     <button onclick="changeQty('正點牛肉堡10片', 1)">＋</button>
   </div>
- 
+
   <!-- 送出按鈕 -->
   <a id="lineBtn" target="_blank" onclick="scrollToTop()">✅ 送出點餐</a>
 
@@ -81,7 +81,7 @@
     const cart = {
       '鮮到味漢堡肉20粒': 0,
       '正點牛肉堡10片': 0,
-          };
+    };
 
     function changeQty(name, delta) {
       cart[name] = Math.max(0, cart[name] + delta);
@@ -91,9 +91,10 @@
 
     function updateLineLink() {
       let msg = '📦 鮮到味 訂單\n';
+      const space = '\u3000\u3000'; // 全形空格兩個
       for (const [item, qty] of Object.entries(cart)) {
         if (qty > 0) {
-          msg += `🐾 ${item} x${qty}\n`;
+          msg += `🐾 ${item}${space}x${qty}\n`;
         }
       }
       if (msg === '📦 鮮到味 訂單\n') {
@@ -107,8 +108,7 @@
     function scrollToTop() {
       setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 500);
     }
-
-    updateLineLink();
   </script>
 </body>
 </html>
+
