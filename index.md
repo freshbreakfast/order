@@ -66,7 +66,7 @@
 
   <div class="item">
     <div class="name">正點牛肉堡10片</div>
-    <img src="https://i.postimg.cc/s2sh6jth/image.jpg" />
+    <img src="https://i.postimg.cc/JnqccTKj/image.jpg" />
     <div class="price">💰 團購價：$205</div>
     <button onclick="changeQty('正點牛肉堡10片', -1)">－</button>
     <span class="qty" id="qty-正點牛肉堡10片">0</span>
