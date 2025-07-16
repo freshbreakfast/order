@@ -75,7 +75,7 @@
 
   <div class="item">
     <div class="name">正點牛肉堡10片</div>
-    <img src="https://i.postimg.cc/s2sh6jth/image.jpg" />
+    <img src="https://i.postimg.cc/JnqccTKj/image.jpg" />
     <div class="price">
       原價：<span class="retail">$249</span> 💰 團購價：$205
     </div>
