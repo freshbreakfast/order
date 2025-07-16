@@ -10,6 +10,15 @@
       max-width: 700px;
       margin: auto;
     }
+    h2 {
+      margin-bottom: 10px;
+    }
+    h3 {
+      background: #f0f0f0;
+      padding: 6px 10px;
+      border-left: 6px solid #06c755;
+      margin-top: 30px;
+    }
     .item {
       margin-bottom: 24px;
       padding: 12px;
@@ -32,7 +41,7 @@
     .retail {
       text-decoration: line-through;
       color: #999;
-      margin: 0 6px;
+      margin-right: 10px;
     }
     button {
       padding: 4px 10px;
@@ -56,35 +65,49 @@
       font-size: 1.1em;
       cursor: pointer;
     }
+    #note {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
   </style>
 </head>
 <body>
   <h2>鮮到味 點餐頁</h2>
 
-  <!-- 商品清單 -->
+  <!-- 🐷 豬肉類 -->
+  <h3>🐷 豬肉類</h3>
   <div class="item">
     <div class="name">鮮到味漢堡肉20粒</div>
     <img src="https://i.postimg.cc/Kzdtxd97/image.jpg" />
     <div class="price">
-      原價：<span class="retail">$199</span> 💰 團購價：$155
+      原價：<span class="retail">$170</span> 💰 團購價：$155
     </div>
     <button onclick="changeQty('鮮到味漢堡肉20粒', -1)">－</button>
     <span class="qty" id="qty-鮮到味漢堡肉20粒">0</span>
     <button onclick="changeQty('鮮到味漢堡肉20粒', 1)">＋</button>
   </div>
 
+  <!-- 🐟 海鮮類 -->
+  <h3>🐟 海鮮類</h3>
   <div class="item">
     <div class="name">正點牛肉堡10片</div>
-    <img src="https://i.postimg.cc/Kzdtxd97/image.jpghttps://i.postimg.cc/JnqccTKj/image.jpg" />
+    <img src="https://i.postimg.cc/JnqccTKj/image.jpg" />
     <div class="price">
-      原價：<span class="retail">$249</span> 💰 團購價：$205
+      原價：<span class="retail">$225</span> 💰 團購價：$205
     </div>
     <button onclick="changeQty('正點牛肉堡10片', -1)">－</button>
     <span class="qty" id="qty-正點牛肉堡10片">0</span>
     <button onclick="changeQty('正點牛肉堡10片', 1)">＋</button>
   </div>
 
-  <!-- 送出按鈕 -->
+  <!-- ✏️ 備註區 -->
+  <textarea id="note" placeholder="📌 請輸入備註：如過敏、地址、電話等..."></textarea>
+
+  <!-- ✅ 傳送按鈕 -->
   <button id="lineBtn" onclick="sendToLine()">✅ 送出點餐</button>
 
   <!-- JavaScript 功能區 -->
@@ -101,15 +124,22 @@
 
     function sendToLine() {
       let msg = '📦 鮮到味 訂單\n';
-      const space = '\u3000\u3000'; // 兩個全形空格
+      const space = '\u3000\u3000'; // 全形空格
       for (const [item, qty] of Object.entries(cart)) {
         if (qty > 0) {
-          msg += `${item}${space}x${qty}\n`;  // 沒有價格、沒有圖案
+          msg += `${item}${space}x${qty}\n`;
         }
       }
+
+      const note = document.getElementById('note').value.trim();
+      if (note) {
+        msg += `\n📌 備註：${note}`;
+      }
+
       if (msg === '📦 鮮到味 訂單\n') {
         msg = '您尚未選擇任何品項喔～';
       }
+
       const encodedMsg = encodeURIComponent(msg);
       const lineUrl = `https://line.me/R/oaMessage/@567ncwhd/?text=${encodedMsg}`;
       scrollToTop();
