@@ -94,7 +94,7 @@
       const space = '\u3000\u3000'; // 全形空格兩個
       for (const [item, qty] of Object.entries(cart)) {
         if (qty > 0) {
-          msg += `🐾 ${item}${space}x${qty}\n`;
+          msg += `${item}${space}x${qty}\n`;
         }
       }
       if (msg === '📦 鮮到味 訂單\n') {
